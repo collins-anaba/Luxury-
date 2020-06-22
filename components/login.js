@@ -1,23 +1,37 @@
-import React from 'react';
-import { StyleSheet, View, FlatList, TextInput } from 'react-native';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import React, {Component}from 'react';
+import { StyleSheet, View, TextInput,Text } from 'react-native';
+import {Card,Input,Button} from 'react-native-elements';
 
-const Login = () => {
+
+class ButtonAction extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            errors: {},
+            redirect: false
+        }
+    }
+}
+
+const Login = (props) => {
     return (
         <View>
+<Card>
 
+    <Text>{'Welcome Back'}</Text>
+      <Input placeholder="Username"
+      ></Input>
+      <Input placeholder="Password"
+      ></Input>
+    <Button title="Sign In"
+    onPress={()=> props.navigation.navigate('List')}/>
+    <Text>{"Forgot username/password"}</Text>
+    <Text>{"Not a member? Apply Now"}</Text>
+
+
+</Card>
         </View>
     )
 }

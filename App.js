@@ -1,19 +1,23 @@
-import React from 'react';
+// import React from 'react';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import {NavigationContainer} from '@react-navigation/native'
 import backgroundCopy from './images/backgroundCopy.jpg'
+import Login from './components/login'
 import { StyleSheet, View, Image } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-
 
 
 export default function App() {
   return (
+    <NavigationContainer>
     <View style={styles.container}>
       <Image 
       source={backgroundCopy}
       style={styles.backgroundImage}
       />
+      <Login/>
     </View>
+      </NavigationContainer>
   );
 }
 
