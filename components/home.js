@@ -1,29 +1,21 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import * as React from 'react';
+
+import { createStackNavigator } from '@react-navigation/stack';
 import Login from './login';
 import App from '../App';
 import Products from './products';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
 
-const stack = createStackNavigator ()
+const Stack = createStackNavigator();
 
-function Navigator(){
-    return(
-        <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen
-                name="Login"
-                component={Login}
-                options={{title: 'Welcome back"}}
-                />
-                <Stack.Screen/>
-            </Stack.Navigator>
-        </NavigationContainer>
-    )
+const Home =()=> {
+  return (
+      <Stack.Navigator>
+        <Stack.Screen name="Login"component={Login}/>
+        <Stack.Screen name="App" component={App} />
+        <Stack.Screen name="Products" component={Products} />
+      </Stack.Navigator>
+  );
 }
-    
 
-
-
-export default createAppContainer(navigator);
+export default Home;
 

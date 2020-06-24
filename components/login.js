@@ -1,7 +1,8 @@
 import React, {Component}from 'react';
-import { StyleSheet, View, TextInput,Text } from 'react-native';
+import {  View, Text } from 'react-native';
 import {Card,Input,Button} from 'react-native-elements';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator} from '@react-navigation/stack';
 
 class ButtonAction extends Component {
     constructor(props){
@@ -15,7 +16,7 @@ class ButtonAction extends Component {
     }
 }
 
-const Login = (props) => {
+const Login = ({navigation}) => {
     return (
         <View>
 <Card>
@@ -26,7 +27,7 @@ const Login = (props) => {
       <Input placeholder="Password"
       ></Input>
     <Button title="Sign In"
-    onPress={()=> props.navigation.navigate('List')}/>
+    onPress={()=> navigation.navigate("Products")}/>
     <Text>{"Forgot username/password"}</Text>
     <Text>{"Not a member? Apply Now"}</Text>
 
