@@ -1,39 +1,51 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {NavigationContainer, StackActions} from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack';
-import backgroundCopy from './images/backgroundCopy.jpg'
+import {NavigationContainer, createAppContainer} from '@react-navigation/native'
+import { createStackNavigator,createAppContainer } from 'react-navigation-stack';
 import { StyleSheet, View, Image } from 'react-native';
-import Home from './components/home'
-import Login from './components/login';
+import HomeScreen from './components/homeScreen';
+import ProductScreen from './components/productScreen';
+import UserDashboard from './components/userDashboard';
+import LoginScreen from './components/loginScreen';
 
 
-const Stack = createStackNavigator();
+const navigationScreen = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Login: LoginScreen,
+    Products: ProductScreen,
+    Dashboard: UserDashboard
 
-export default function App() {
-  return (
-    <NavigationContainer>
-    <View style={styles.container}>
-      <Image 
-      source={backgroundCopy}
-      style={styles.backgroundImage}
-      />
-      <Home/>
-    </View>
-      </NavigationContainer>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  backgroundImage: {
-    flex:1,
-    width: 400,
-    height: 50
+  {
+    initialRouteName: 'Home',
+    defaultNavigationOptions:{
+      title: "App"
+    }
   }
-});
+)
+
+
+export default navigationScreen;
+
+
+
+
+
+// const Stack = createStackNavigator();
+
+// export default function App(props) {
+//   return (
+//     <NavigationContainer>
+//     <View>
+//       <Home/>
+//       <BackgroundScreen/>
+//     </View>
+//       </NavigationContainer>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+  
+// });
+
