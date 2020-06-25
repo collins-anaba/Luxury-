@@ -1,9 +1,9 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {NavigationContainer, createAppContainer} from '@react-navigation/native'
-import { createStackNavigator,createAppContainer } from 'react-navigation-stack';
+import { createStackNavigator} from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 import { StyleSheet, View, Image } from 'react-native';
-import HomeScreen from './components/homeScreen';
+// import HomeScreen from './components/homeScreen';
 import ProductScreen from './components/productScreen';
 import UserDashboard from './components/userDashboard';
 import LoginScreen from './components/loginScreen';
@@ -11,14 +11,14 @@ import LoginScreen from './components/loginScreen';
 
 const navigationScreen = createStackNavigator(
   {
-    Home: HomeScreen,
+    // Home: HomeScreen
     Login: LoginScreen,
     Products: ProductScreen,
     Dashboard: UserDashboard
 
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Login',
     defaultNavigationOptions:{
       title: "App"
     }
@@ -26,7 +26,7 @@ const navigationScreen = createStackNavigator(
 )
 
 
-export default navigationScreen;
+export default createAppContainer(navigationScreen);
 
 
 

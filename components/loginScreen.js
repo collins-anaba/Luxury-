@@ -8,6 +8,7 @@ import {Card,Input,Button} from 'react-native-elements';
 const LoginScreen = ({navigation}) => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
+    console.log(navigation)
     return (
 <View>
 <Card>
