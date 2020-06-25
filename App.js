@@ -30,22 +30,3 @@ export default createAppContainer(navigationScreen);
 
 
 
-
-
-// const Stack = createStackNavigator();
-
-// export default function App(props) {
-//   return (
-//     <NavigationContainer>
-//     <View>
-//       <Home/>
-//       <BackgroundScreen/>
-//     </View>
-//       </NavigationContainer>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-  
-// });
-

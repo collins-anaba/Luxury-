@@ -19,8 +19,6 @@ const ProductScreen = ({navigation}) => {
 
 
     return ( 
-    <View>
-<Button onPress={()=> navigation.navigate("userDashboard")}/>
     <FlatList
     //key extractor keep tracks of keys for each object in flat list
     keyExtractor={(productList)=>{productList.name}}
@@ -29,7 +27,6 @@ const ProductScreen = ({navigation}) => {
     return <Text style={Styles.textStyle}>{item.name}</Text>
    }}
    />
-    </View>
 
 
     )
