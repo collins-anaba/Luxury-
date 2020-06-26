@@ -5,14 +5,16 @@ const mongoose = require('mongoose')
 const app = express();
 const routes = require('./routes');
 const bodyParser = require('body-Parser');
+const requireAuth = require('./middleware/requireAuth');
 
 
 app.use(bodyParser.json())
 app.use(routes);
 
-app.get('/', (req, res) => {
-    res.send('Hi There');
-})
+//endpoint get request
+app.get('/', requireAuth,(req, res) => {
+    res.send(`Your email: ${req.user.email}`);
+});
 
 
 
