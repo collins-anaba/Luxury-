@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
 });
 
 // pre call hook that saves the instance of a user to the database. use the word function and not an anonymous function.
-userSchema.pre('save', function(){
+userSchema.pre('save', function(next){
     const user = this;
     // if password has not been changed then don't salt the password
     if(!user.isModified('password')){
