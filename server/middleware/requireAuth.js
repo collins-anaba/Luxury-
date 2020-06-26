@@ -11,4 +11,18 @@ const { authorization} = req.headers;
 if(! authorization){
     return res.status(401).send({error: "You must be logged in"})
 }
-}
+// extract auth token. auth === "Bearer token"
+const token = authorization.replace('Bearer', '');
+//verifies the token and return error message if token isn't real
+jwt.verify(token,'SECRET_SESSION', async (err, payload) => {
+if(err){
+    return res.status(401).send({error: 'You must be logged in'})
+};
+// tells Mongo to go find the user who has the token
+const { userId } = payload;
+const user = await User.findById(userId);
+//assigns user to request object
+req.user = user;
+next();
+})
+};
