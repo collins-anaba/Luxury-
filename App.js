@@ -1,31 +1,28 @@
 import 'react-native-gesture-handler';
-import * as React from 'react';
 import { createStackNavigator, } from 'react-navigation-stack';
 import { createAppContainer , createSwitchNavigator} from 'react-navigation';
-// import HomeScreen from './components/homeScreen';
 import ProductScreen from './components/productScreen';
 import UserDashboard from './components/userDashboard';
 import LoginScreen from './components/loginScreen';
+import ForgotPassword from './components/forgotPassword';
+import SignUpScreen from './components/signUp';
 
 
-const navigationScreen = createStackNavigator(
+const switchNavigator = createSwitchNavigator(
   {
-    Login: LoginScreen,
+    loginFlow:createStackNavigator({
+      Login: LoginScreen,
+      SignUp: SignUpScreen,
+      Password: ForgotPassword,
+    }),
     Products: ProductScreen,
-    Dashboard: UserDashboard
-
-  },
-  {
-    initialRouteName: 'Login',
-    defaultNavigationOptions:{
-      title: "App"
-    }
-  },
+    Dashboard: UserDashboard,
+  }
   
 )
 
 
-export default createAppContainer(navigationScreen);
+export default createAppContainer(switchNavigator);
 
 
 

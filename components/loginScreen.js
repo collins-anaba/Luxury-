@@ -14,7 +14,7 @@ const LoginScreen = ({navigation}) => {
 <View>
     <Spacer/>
 <Card>
-    <Text style={{alignItems:'center',fontSize: 15, }}>{'Welcome Back'}</Text>
+    <Text>{'Welcome Back'}</Text>
     <Spacer/>
       <Input 
       placeholder="Username"
@@ -31,9 +31,15 @@ const LoginScreen = ({navigation}) => {
      title="Sign In"
      onPress={()=> navigation.navigate("Products")}/>
      <Spacer/>
-    <Text style={{fontSize: 20}}>{"Forgot username/password"}</Text>
+     <TouchableOpacity>
+    <Text style={{fontSize: 20}}
+    onPress={()=> navigation.navigate("Password")}>{"Forgot username/password"}</Text>
+    </TouchableOpacity>
     <Spacer/>
-    <Text style={{fontSize: 20}}>{"Not a member? Apply Now"}</Text>
+    <TouchableOpacity>
+    <Text style={{fontSize: 20}}
+    onPress={()=> navigation.navigate("SignUp")}>{"Not a member? Apply Now"}</Text>
+    </TouchableOpacity>
 </Card>
 </View>
     )
