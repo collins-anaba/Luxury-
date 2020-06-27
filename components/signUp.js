@@ -2,19 +2,38 @@ import React, {Component, useState}from 'react';
 import {  View, TouchableOpacity,StyleSheet} from 'react-native';
 import { Card,Input,Button} from 'react-native-elements';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName,setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
 
     return(
         <View>
             <Card>
                 <Input
-                placeholder="First Name"/>
+                placeholder="First Name"
+                value={firstName}
+                onChange={setFirstName}/>
                 <Input
-                placeholder="Last Name"/>
+                placeholder="Last Name"
+                value={lastName}
+                onChange={setLastName}/>
                 <Input
-                placeholder="Email Address"/>
+                placeholder="Email Address"
+                value={email}
+                onChange={setEmail}
+                autoCapitalize="none"
+                autoCorrect={false}/>
                 <Input
-                placeholder="Password"/>
+                placeholder="Password"
+                value={password}
+                onChange={setPassword}
+                autoCapitalize="none"
+                autoCorrect={false}
+                secureTextEntry={true}
+                />
                 <Input
                 placeholder="Enter your credit card number here"/>
                 <Input

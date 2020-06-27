@@ -6,6 +6,7 @@ import UserDashboard from './components/userDashboard';
 import LoginScreen from './components/loginScreen';
 import ForgotPassword from './components/forgotPassword';
 import SignUpScreen from './components/signUp';
+import {Provider as authProvider} from './redux/authContext';
 
 
 const switchNavigator = createSwitchNavigator(

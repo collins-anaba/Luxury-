@@ -7,7 +7,7 @@ import Spacer from './spacer';
 
 
 const LoginScreen = ({navigation}) => {
-    const [userName, setUserName] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     console.log(navigation)
     return (
@@ -17,16 +17,20 @@ const LoginScreen = ({navigation}) => {
     <Text>{'Welcome Back'}</Text>
     <Spacer/>
       <Input 
-      placeholder="Username"
-      value={userName}
-      onChangeText={setUserName}
+      placeholder="Email"
+      value={email}
+      onChangeText={setEmail}
       />
       <Spacer/>
       <Input 
       style={{fontSize: 20}}
       placeholder="Password"
       value={password}
-      onChangeText={setPassword}/>
+      onChangeText={setPassword}
+      autoCapitalize="none"
+      autoCorrect={true}
+      secureTextEntry={true}
+      />
     <Button
      title="Sign In"
      onPress={()=> navigation.navigate("Products")}/>
