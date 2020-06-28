@@ -1,3 +1,4 @@
+import React from 'react'
 import 'react-native-gesture-handler';
 import { createStackNavigator, } from 'react-navigation-stack';
 import { createAppContainer , createSwitchNavigator} from 'react-navigation';
@@ -6,7 +7,7 @@ import UserDashboard from './components/userDashboard';
 import LoginScreen from './components/loginScreen';
 import ForgotPassword from './components/forgotPassword';
 import SignUpScreen from './components/signUp';
-import {Provider as authProvider} from './redux/authContext';
+import {Provider as AuthProvider} from './redux/authContext';
 
 
 const switchNavigator = createSwitchNavigator(
@@ -23,7 +24,14 @@ const switchNavigator = createSwitchNavigator(
 )
 
 
-export default createAppContainer(switchNavigator);
+const App = createAppContainer(switchNavigator);
+export default () => {
+  return (
+    <AuthProvider>
+      <App/>
+    </AuthProvider>
+  )
+}
 
 
 
