@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component}from 'react';
 import { StyleSheet,TouchableOpacity, View ,Text} from 'react-native';
 import {ListItem,Card} from 'react-native-elements';
 import {FontAwesome, Entypo, FontAwesome5, Ionicons} from '@expo/vector-icons';
@@ -44,7 +44,7 @@ subtitle: 'Aviation'
 },
 ]
 
-const ProductScreen = () => {
+const ProductScreen = ({navigation}) => {
 
     return ( 
 <Card>
@@ -56,7 +56,7 @@ const ProductScreen = () => {
     </View>
     </TouchableOpacity>
         <Spacer/>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>navigation.navigate("LawnCareScreen")}>
     <View style={Styles.background}>
     <Entypo name='flower' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Commercial Lawn Care</Text>

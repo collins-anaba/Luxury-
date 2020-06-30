@@ -19,6 +19,7 @@
     "expo": "~37.0.3",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "firebase": "^7.15.5",
     "jsonwebtoken": "^8.5.1",
     "massive": "^6.4.1",
     "mongoose": "^5.9.20",

@@ -8,6 +8,7 @@ import LoginScreen from './src/server/components/loginScreen';
 import ForgotPassword from './src/server/components/forgotPassword';
 import SignUpScreen from './src/server/components/signUp';
 import {Provider as AuthProvider} from './src/server/redux/authContext';
+import LawnCareScreen from './src/server/components/lawnCare';
 
 
 
@@ -20,6 +21,7 @@ const switchNavigator = createSwitchNavigator(
     }),
     Products: ProductScreen,
     Dashboard: UserDashboard,
+    LawnCare: LawnCareScreen
   }
 
 )

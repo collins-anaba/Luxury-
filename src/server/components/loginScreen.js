@@ -2,10 +2,13 @@ import React, {Component, useState}from 'react';
 import {  View, TouchableOpacity,StyleSheet,ImageBackground,Image} from 'react-native';
 import {Text, Card,Input,Button} from 'react-native-elements';
 import Spacer from './spacer';
+import firebase from 'firebase';
+
 
 
 
 const LoginScreen = ({navigation}) => {
+    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     console.log(navigation)
