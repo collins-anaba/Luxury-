@@ -1,8 +1,7 @@
 import React, {Component, useState}from 'react';
-import {  View, TouchableOpacity,StyleSheet} from 'react-native';
+import {  View, TouchableOpacity,StyleSheet,ImageBackground,Image} from 'react-native';
 import {Text, Card,Input,Button} from 'react-native-elements';
 import Spacer from './spacer';
-
 
 
 
@@ -11,10 +10,10 @@ const LoginScreen = ({navigation}) => {
     const [password, setPassword] = useState('')
     console.log(navigation)
     return (
-<View>
+<ImageBackground source={require('../assets/backgroundColor.jpg')} style={styles.container}>
+    <Image source={require('../assets/logo.png')} style={styles.image1}/>
     <Spacer/>
-<Card>
-    <Text>{'Welcome Back'}</Text>
+<Card containerStyle={{ height: 400, marginBottom:200 , borderRadius: 10}}>
     <Spacer/>
       <Input 
       placeholder="Email"
@@ -33,6 +32,7 @@ const LoginScreen = ({navigation}) => {
       />
     <Button
      title="Sign In"
+     buttonStyle={{backgroundColor:'red'}}
      onPress={()=> navigation.navigate("Products")}/>
      <Spacer/>
      <TouchableOpacity>
@@ -45,13 +45,24 @@ const LoginScreen = ({navigation}) => {
     onPress={()=> navigation.navigate("SignUp")}>{"Not a member? Apply Now"}</Text>
     </TouchableOpacity>
 </Card>
-</View>
+</ImageBackground>
     )
 };
  
 LoginScreen.navigationOptions = {
         headerShown: false
 }
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex:1,
+        alignItems: 'center',
+        justifyContent:'center'
+    },
+    image1:{
+        width: 175,
+        height:175,
+        marginTop:200 
+    }
+})
 
 export default LoginScreen;

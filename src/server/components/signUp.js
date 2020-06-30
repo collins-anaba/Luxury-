@@ -1,12 +1,18 @@
-import React, {Component, useState}from 'react';
+import React, { useState, useContext}from 'react';
 import {  View, TouchableOpacity,StyleSheet} from 'react-native';
 import { Card,Input,Button} from 'react-native-elements';
+import {Context as AuthContext} from '../redux/authContext';
+import { Image} from 'react-native';
+
+
 
 const SignUpScreen = ({navigation}) => {
+    const {state, signUp } = useContext(AuthContext)
     const [firstName, setFirstName] = useState('');
     const [lastName,setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [telephoneNumber, setTelephoneNumber] = useState('');
 
 
     return(
@@ -27,6 +33,11 @@ const SignUpScreen = ({navigation}) => {
                 autoCapitalize="none"
                 autoCorrect={false}/>
                 <Input
+                placeholder="Telephone Number"
+                value={telephoneNumber}
+                onChange={setTelephoneNumber}
+                />
+                <Input
                 placeholder="Password"
                 value={password}
                 onChange={setPassword}
@@ -34,16 +45,9 @@ const SignUpScreen = ({navigation}) => {
                 autoCorrect={false}
                 secureTextEntry={true}
                 />
-                <Input
-                placeholder="Enter your credit card number here"/>
-                <Input
-                placeholder="month"/>
-                <Input
-                placeholder="year"/>
-                <Input
-                placeholder="CVV"/>
-                    <Button
-                placeholder="Enter"/>
+                <Button
+                title="Enter"
+                onPress={()=> signUp({firstName,lastName,email,telephoneNumber,password})}/>
             </Card>
         </View>
     )

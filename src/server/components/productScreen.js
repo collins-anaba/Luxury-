@@ -1,40 +1,141 @@
 import React from 'react';
-import { Text,FlatList,StyleSheet,TouchableOpacity,Button } from 'react-native'
+import { StyleSheet,TouchableOpacity, View ,Text} from 'react-native';
+import {ListItem,Card} from 'react-native-elements';
+import {FontAwesome, Entypo, FontAwesome5, Ionicons} from '@expo/vector-icons';
+import Spacer from './spacer';
 
 
-const ProductScreen = ({navigation}) => {
-    console.log(navigation)
+const products = [
+{name: 'Catch these hands massage',
+avatar_url:'',
+subtitle: 'massage'
+},
+{name: 'Luxury Vehicle Detailing',
+avatar_url:'',
+subtitle: 'detailing'
+},
+{name: 'Luxury Lawn care',
+avatar_url:'',
+subtitle: 'commercial lawn care'
+},
+{name: 'Luxury Pharmacy',
+avatar_url:'',
+subtitle: 'pharmaceuticals'
+},
+{name: 'Luxury Credit Repair',
+avatar_url:'',
+subtitle: 'personal finances'
+},
+{name: 'Luxury Clips with New York',
+avatar_url:'',
+subtitle: 'Men Grooming'
+},
+{name: 'Luxury brokerage with Saks',
+avatar_url:'',
+subtitle: 'Real Estate'
+},
+{name: 'Luxury Personal Training',
+avatar_url:'',
+subtitle: 'Fitness'
+},
+{name: 'Luxury Private Flights with YalaJets',
+avatar_url:'',
+subtitle: 'Aviation'
+},
+]
 
-    const productList = [
-        {name: 'luxury personal training with moefitness33', key: '1'},
-        {name: 'luxury private jets with yalajets',  key: '2'},
-        {name:'luxury Pharmaceutical', key: '3'},
-        {name:'luxury massage with Catch these hands', key: '4'},
-        {name: 'luxury lawn care',  key: '5'},
-        {name: 'luxury brokerage with Saks', key: '6'},
-        {name: 'luxury clips with New York', key: '7'},
-        {name: 'luxury credit repair', key: '8'},
-        {name: 'luxury credit repair', key: '9'},
-    ]
-
+const ProductScreen = () => {
 
     return ( 
-    <FlatList
-    //key extractor keep tracks of keys for each object in flat list
-    keyExtractor={(productList)=>{productList.name}}
-    data={productList}
-    renderItem={({item})=> {
-    return <Text style={Styles.textStyle}>{item.name}</Text>
-   }}
-   />
-
+<Card>
+ <View style={Styles.spacing}>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <FontAwesome name='car' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Vehicle Detailing</Text>
+    </View>
+    </TouchableOpacity>
+        <Spacer/>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <Entypo name='flower' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Commercial Lawn Care</Text>
+    </View>
+    </TouchableOpacity>
+        <Spacer/>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <FontAwesome5 name='pills' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Pharmaceuticals</Text>
+    </View>
+    </TouchableOpacity>
+        <Spacer/>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <Entypo name='credit-card' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Credit Repair</Text>
+    </View>
+    </TouchableOpacity>
+        <Spacer/>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <Ionicons name='md-fitness' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Personal Fitness</Text>
+    </View>
+    </TouchableOpacity>
+        <Spacer/>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <Entypo name='home' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Brokerage with Saks</Text>
+    </View>
+    </TouchableOpacity>
+        <Spacer/>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <Entypo name='hand' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Massage with Catch These Hands</Text>
+    </View>
+    </TouchableOpacity>
+        <Spacer/>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <FontAwesome name='scissors' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Grooming with New York</Text>
+    </View>
+    </TouchableOpacity>
+        <Spacer/>
+    <TouchableOpacity>
+    <View style={Styles.background}>
+    <Entypo name='scissors' size={24} style={Styles.icons}/>
+    <Text style={Styles.name}>Luxury Private Flights with Yala Jets</Text>
+    </View>
+    </TouchableOpacity>
+</View>
+        </Card>
 
     )
 };
 
 const Styles = StyleSheet.create({
-    textStyle: {
-        marginVertical: 20
+    background: {
+        backgroundColor: '#d3d3d3',
+        height: 80,
+        borderRadius: 10,
+        marginHorizontal:19,
+        borderWidth: 1,
+        shadowRadius:3,
+        shadowColor: 'black'
+    },
+    name: {
+        fontSize: 15,
+        fontStyle: ('new times roman', 'italic'),
+        alignSelf: 'center'
+        
+    },
+    icons:{
+        paddingLeft:5,
+        paddingTop: 5
     }
 
 })

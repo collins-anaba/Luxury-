@@ -10,6 +10,7 @@ import SignUpScreen from './src/server/components/signUp';
 import {Provider as AuthProvider} from './src/server/redux/authContext';
 
 
+
 const switchNavigator = createSwitchNavigator(
   {
     loginFlow:createStackNavigator({
@@ -20,7 +21,7 @@ const switchNavigator = createSwitchNavigator(
     Products: ProductScreen,
     Dashboard: UserDashboard,
   }
-  
+
 )
 
 

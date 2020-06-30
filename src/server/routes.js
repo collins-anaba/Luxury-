@@ -7,10 +7,10 @@ const User = mongoose.model('User')
 
 //endpoint post request
 router.post('/signup', async (req,res) => {
-    const {email, password, firstName, lastName,telephoneNumber} = req.body;
+    const {firstName, lastName, email,telephoneNumber,password} = req.body;
     //try catch to catch duplicate emails
     try{
-        const user = new User({email,password,firstName,lastName,telephoneNumber});
+        const user = new User({firstName, lastName, email,telephoneNumber,password});
         //saves post request to the db
         await user.save();
         //creating a token

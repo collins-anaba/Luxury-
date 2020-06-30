@@ -1,4 +1,5 @@
 import createContext from './createContext';
+import mainApi from '../api/apiConnection';
 
 const authReducer = (state, action) => {
     switch (action.type){
@@ -8,7 +9,13 @@ const authReducer = (state, action) => {
 };
 
 const signUp = (dispatch) => {
-    return ({firstName, lastName, email, password, creditCardNumber, month, year, cvv}) => {
+    return async ({firstName, lastName, email, password, telephoneNumber }) => {
+        try {
+            const response =  await mainApi.post('/signup',{firstName, lastName, email, password, telephoneNumber});
+            console.log(response.data)
+        } catch(err){
+            console.log(err.message)
+        }
     };
 };
 
