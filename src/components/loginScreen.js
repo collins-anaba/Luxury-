@@ -2,15 +2,14 @@ import React, {Component, useState}from 'react';
 import {  View, TouchableOpacity,StyleSheet,ImageBackground,Image} from 'react-native';
 import {Text, Card,Input,Button} from 'react-native-elements';
 import Spacer from './spacer';
-import firebase from 'firebase';
-
 
 
 
 const LoginScreen = ({navigation}) => {
-    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
+    
     console.log(navigation)
     return (
 <ImageBackground source={require('../assets/backgroundColor.jpg')} style={styles.container}>
@@ -69,3 +68,13 @@ const styles = StyleSheet.create({
 })
 
 export default LoginScreen;
+
+// const onButtonPress = () => {
+//     firebase.auth().signInWithEmailAndPassword(email,password)
+//     .catch(()=> {
+//         firebase.auth().createUserWithEmailAndPassword(email,password)
+//         .catch(()=> {
+//             useState({error:'Authentication failed'})
+//         })
+//     })
+// };

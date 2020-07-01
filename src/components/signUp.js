@@ -1,8 +1,7 @@
 import React, { useState, useContext}from 'react';
 import {  View, TouchableOpacity,StyleSheet} from 'react-native';
-import { Card,Input,Button} from 'react-native-elements';
+import { Card,Input,Button, Text} from 'react-native-elements';
 import {Context as AuthContext} from '../redux/authContext';
-import { Image} from 'react-native';
 
 
 
@@ -14,6 +13,7 @@ const SignUpScreen = ({navigation}) => {
     const [password, setPassword] = useState('');
     const [telephoneNumber, setTelephoneNumber] = useState('');
 
+    console.log(state)
 
     return(
         <View>
@@ -21,33 +21,34 @@ const SignUpScreen = ({navigation}) => {
                 <Input
                 placeholder="First Name"
                 value={firstName}
-                onChange={setFirstName}/>
+                onChangeText={setFirstName}/>
                 <Input
                 placeholder="Last Name"
                 value={lastName}
-                onChange={setLastName}/>
+                onChangeText={setLastName}/>
                 <Input
                 placeholder="Email Address"
                 value={email}
-                onChange={setEmail}
+                onChangeText={setEmail}
                 autoCapitalize="none"
                 autoCorrect={false}/>
                 <Input
                 placeholder="Telephone Number"
                 value={telephoneNumber}
-                onChange={setTelephoneNumber}
+                onChangeText={setTelephoneNumber}
                 />
                 <Input
                 placeholder="Password"
                 value={password}
-                onChange={setPassword}
+                onChangeText={setPassword}
                 autoCapitalize="none"
                 autoCorrect={false}
                 secureTextEntry={true}
                 />
+                {state.errorMessage ? <Text>{state.errorMessage}</Text> : null}
                 <Button
                 title="Enter"
-                onPress={()=> signUp({firstName,lastName,email,telephoneNumber,password})}/>
+                onPress={()=> signUp({firstName,lastName,email,password,telephoneNumber})}/>
             </Card>
         </View>
     )

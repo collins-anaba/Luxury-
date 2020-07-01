@@ -7,10 +7,10 @@ const User = mongoose.model('User')
 
 //endpoint post request
 router.post('/signup', async (req,res) => {
-    const {firstName, lastName, email,telephoneNumber,password} = req.body;
+    const {firstName, lastName, email,password,telephoneNumber} = req.body;
     //try catch to catch duplicate emails
     try{
-        const user = new User({firstName, lastName, email,telephoneNumber,password});
+        const user = new User({firstName, lastName, email,password,telephoneNumber});
         //saves post request to the db
         await user.save();
         //creating a token
@@ -28,7 +28,7 @@ router.post('/signin', async (req,res)=> {
     }
    const user =  await User.findOne({email:email});
    if (!user){
-       res.status(422).send({error: 'Invalid password or email'})
+       return res.status(422).send({error: 'Invalid password or email'})
    }
    try {
        await user.comparePassword(password);

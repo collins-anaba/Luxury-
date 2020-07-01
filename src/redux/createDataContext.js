@@ -16,5 +16,5 @@ export default (reducer, actions, defaultValue) => {
             </Context.Provider>
         )
     };
-    return {Context: Context, Provider: Provider};
+    return {Context, Provider};
 };

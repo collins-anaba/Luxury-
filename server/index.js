@@ -1,11 +1,11 @@
 require('dotenv').config();
-require('./controllers/authController')
+require('./models/user')
 const express = require('express');
 const mongoose = require('mongoose')
-const app = express();
 const routes = require('./routes');
 const bodyParser = require('body-Parser');
 const requireAuth = require('./middleware/requireAuth');
+const app = express();
 
 
 app.use(bodyParser.json())
@@ -22,7 +22,7 @@ app.listen(5000, () => console.log('Listening on Port 5000'))
 
 
 
-const mongoUri = 'mongodb+srv://admin:collinsanaba@cluster0-xlqku.mongodb.net/<dbname>?retryWrites=true&w=majority' ;
+const mongoUri = 'mongodb+srv://admin:collinsanaba@cluster0-xlqku.mongodb.net/<dbname>?retryWrites=true&w=majority'
 mongoose.connect(mongoUri,{
     useNewUrlParser: true,
     useCreateIndex: true,
