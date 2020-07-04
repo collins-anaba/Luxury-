@@ -9,6 +9,7 @@ import Spacer from './spacer';
 
 
 const ProductScreen = ({navigation}) => {
+    console.log(navigate)
 
     return ( 
 <ImageBackground source={require('../assets/backgroundColor.jpg')} style={Styles.container}>
@@ -31,49 +32,49 @@ const ProductScreen = ({navigation}) => {
     </View>
     </TouchableOpacity>
         <Spacer/>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>Linking.openURL('http://timbumperllc.zohosites.com/')}>
     <View style={Styles.background}>
     <FontAwesome5 name='pills' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Pharmaceuticals</Text>
     </View>
     </TouchableOpacity>
         <Spacer/>
-    <TouchableOpacity>
+    {/* <TouchableOpacity>
     <View style={Styles.background}>
     <Entypo name='credit-card' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Credit Repair</Text>
     </View>
-    </TouchableOpacity>
+    </TouchableOpacity> */}
         <Spacer/>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>Linking.openURL('https://moefitness33.com/')}>
     <View style={Styles.background}>
     <Ionicons name='md-fitness' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Personal Fitness</Text>
     </View>
     </TouchableOpacity>
-        <Spacer/>
-    <TouchableOpacity>
+        {/* <Spacer/> */}
+    {/* <TouchableOpacity>
     <View style={Styles.background}>
     <Entypo name='home' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Brokerage with Saks</Text>
     </View>
-    </TouchableOpacity>
+    </TouchableOpacity> */}
         <Spacer/>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>Linking.openURL('https://www.catchthesehands-massage.com/')}>
     <View style={Styles.background}>
     <Entypo name='hand' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Massage with Catch These Hands</Text>
     </View>
     </TouchableOpacity>
         <Spacer/>
-    <TouchableOpacity>
+    {/* <TouchableOpacity>
     <View style={Styles.background}>
     <FontAwesome name='scissors' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Grooming with New York</Text>
     </View>
-    </TouchableOpacity>
-        <Spacer/>
-    <TouchableOpacity>
+    </TouchableOpacity> */}
+        {/* <Spacer/> */}
+    <TouchableOpacity onPress={()=>Linking.openURL('http://yalajets.com/')}>
     <View style={Styles.background}>
     <Entypo name='aircraft' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Private Flights with Yala Jets</Text>

@@ -1,4 +1,4 @@
-import React, {Component, useState}from 'react';
+import React, { useState}from 'react';
 import {  View, TouchableOpacity,StyleSheet,ImageBackground,Image} from 'react-native';
 import {Text, Card,Input,Button} from 'react-native-elements';
 import Spacer from './spacer';

@@ -1,5 +1,5 @@
 import React, { useState, useContext}from 'react';
-import {  View, TouchableOpacity,StyleSheet} from 'react-native';
+import {  Image,StyleSheet,ImageBackground} from 'react-native';
 import { Card,Input,Button, Text} from 'react-native-elements';
 import {Context as AuthContext} from '../redux/authContext';
 
@@ -13,11 +13,11 @@ const SignUpScreen = ({navigation}) => {
     const [password, setPassword] = useState('');
     const [telephoneNumber, setTelephoneNumber] = useState('');
 
-    console.log(state)
 
     return(
-        <View>
-            <Card>
+        <ImageBackground source={require('../assets/backgroundColor.jpg')} style={styles.container}>
+         <Image source={require('../assets/logo.png')} style={styles.image1}/>
+            <Card containerStyle={{ height: 450, width:375,marginBottom:200 , borderRadius: 10}}>
                 <Input
                 placeholder="First Name"
                 value={firstName}
@@ -48,14 +48,28 @@ const SignUpScreen = ({navigation}) => {
                 {state.errorMessage ? <Text>{state.errorMessage}</Text> : null}
                 <Button
                 title="Enter"
+                buttonStyle={{backgroundColor:'red'}}
                 onPress={()=> signUp({firstName,lastName,email,password,telephoneNumber})}/>
             </Card>
-        </View>
+        </ImageBackground>
     )
 };
 
 SignUpScreen.navigationOptions = {
     headerShown: false
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex:1,
+        alignItems: 'center',
+        justifyContent:'center'
+    },
+    image1:{
+        width: 175,
+        height:175,
+        marginTop:200 
+    }
+})
 
 export default SignUpScreen;

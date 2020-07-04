@@ -1,3 +1,4 @@
+
 import React from 'react'
 import {View,StyleSheet, Button,ImageBackground, ScrollView,Linking,TouchableOpacity} from 'react-native';
 import {Text, Card} from 'react-native-elements';
@@ -13,21 +14,21 @@ return (
 style={styles.boxWithShadow} >
     <Text style={styles.title}>Car detailing</Text>
     <View>
-        <Text style={styles.paragraph}> ☑️ Landscape Maintenance</Text>
+        <Text style={styles.paragraph}>$25 The basic: Exterior and a vacuum, quick fast and clean</Text>
         <Spacer/>
-        <Text style={styles.paragraph}> ☑️ Landscape Installation</Text>
+        <Text style={styles.paragraph}> $50 the Standard: Exterior, vacuum, tire shine all hand washed</Text>
         <Spacer/>
-        <Text style={styles.paragraph}> ☑️ Tree Care</Text>
+        <Text style={styles.paragraph}>$100 The Supreme: The Exterior, vacuum, tire shine, wax, air fresheners</Text>
         <Spacer/>
-        <Text style={styles.title}>We offer a Monthly maintenance Plan</Text>
-        <Text style={styles.title}>Or a one time project</Text>
+        <Text style={styles.paragraph}>$350 The Executive: includes a loaner(S63, G63, S560, GTS63) Exterior, vacuum, tire shine, wax, buff, air fresheners</Text>
+        <Spacer/>
     </View>
     <Spacer/>
     <Spacer/>
     <Spacer/>
 <View style={styles.background}>
-    <TouchableOpacity onPress={()=>Linking.openURL('mailto:info@luxuryvipsvc.com')}>
-        <Text style={styles.emailLink}>Email us for a quote</Text>
+    <TouchableOpacity onPress={()=>Linking.tel('8448478463')}>
+        <Text style={styles.emailLink}>Book us now</Text>
     </TouchableOpacity>
     </View>
 </Card>
@@ -36,7 +37,7 @@ style={styles.boxWithShadow} >
 )
 };
 
-LawnCare.navigationOptions = {
+carDetail.navigationOptions = {
     headerShown: false
 }
 

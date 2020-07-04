@@ -1,11 +1,11 @@
 import React from 'react'
-import {View,StyleSheet, Button,ImageBackground, ScrollView,Linking,TouchableOpacity} from 'react-native';
+import {View,StyleSheet, ImageBackground, ScrollView,Linking,TouchableOpacity} from 'react-native';
 import {Text, Card} from 'react-native-elements';
 import Spacer from './spacer';
 
 
 
-const LawnCare = ({Children}) => {
+const lawnCareScreen = ({Children}) => {
 return (
 <ImageBackground source={require('../assets/landscapeBack.png')} style={styles.container}>
 <ScrollView>
@@ -36,7 +36,7 @@ style={styles.boxWithShadow} >
 )
 };
 
-LawnCare.navigationOptions = {
+lawnCareScreen.navigationOptions = {
     headerShown: false
 }
 
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
         
 });
 
-export default LawnCare;
+export default lawnCareScreen;

@@ -21,8 +21,8 @@ const switchNavigator = createSwitchNavigator(
     }),
     Products: ProductScreen,
     Dashboard: UserDashboard,
-    LawnCare: LawnCareScreen,
-    CarDetail: CarDetailScreen
+    CarDetail: CarDetailScreen,
+    LawnCare: LawnCareScreen
   }
 
 )
@@ -36,6 +36,3 @@ export default () => {
     </AuthProvider>
   )
 }
-
-
-
