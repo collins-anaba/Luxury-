@@ -17,7 +17,7 @@ const ProductScreen = ({navigation}) => {
  <View style={Styles.spacing}>
      <Text style={Styles.title}>Services</Text>
      <Spacer/>
-    <TouchableOpacity>
+    <TouchableOpacity onPress={()=>navigation.navigate("CarDetail")}>
     <View style={Styles.background}>
     <FontAwesome name='car' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Vehicle Detailing</Text>
