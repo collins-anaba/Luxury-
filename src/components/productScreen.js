@@ -1,54 +1,22 @@
 import React, {Component}from 'react';
-import { StyleSheet,TouchableOpacity, View ,Text} from 'react-native';
-import {ListItem,Card} from 'react-native-elements';
+import { StyleSheet,TouchableOpacity, View ,Text, ScrollView,ImageBackground} from 'react-native';
+import {Card} from 'react-native-elements';
 import {FontAwesome, Entypo, FontAwesome5, Ionicons} from '@expo/vector-icons';
 import Spacer from './spacer';
 
 
-const products = [
-{name: 'Catch these hands massage',
-avatar_url:'',
-subtitle: 'massage'
-},
-{name: 'Luxury Vehicle Detailing',
-avatar_url:'',
-subtitle: 'detailing'
-},
-{name: 'Luxury Lawn care',
-avatar_url:'',
-subtitle: 'commercial lawn care'
-},
-{name: 'Luxury Pharmacy',
-avatar_url:'',
-subtitle: 'pharmaceuticals'
-},
-{name: 'Luxury Credit Repair',
-avatar_url:'',
-subtitle: 'personal finances'
-},
-{name: 'Luxury Clips with New York',
-avatar_url:'',
-subtitle: 'Men Grooming'
-},
-{name: 'Luxury brokerage with Saks',
-avatar_url:'',
-subtitle: 'Real Estate'
-},
-{name: 'Luxury Personal Training',
-avatar_url:'',
-subtitle: 'Fitness'
-},
-{name: 'Luxury Private Flights with YalaJets',
-avatar_url:'',
-subtitle: 'Aviation'
-},
-]
+
+
 
 const ProductScreen = ({navigation}) => {
 
     return ( 
+<ImageBackground source={require('../assets/backgroundColor.jpg')} style={Styles.container}>
+<ScrollView>
 <Card>
  <View style={Styles.spacing}>
+     <Text style={Styles.title}>Services</Text>
+     <Spacer/>
     <TouchableOpacity>
     <View style={Styles.background}>
     <FontAwesome name='car' size={24} style={Styles.icons}/>
@@ -56,7 +24,7 @@ const ProductScreen = ({navigation}) => {
     </View>
     </TouchableOpacity>
         <Spacer/>
-    <TouchableOpacity onPress={()=>navigation.navigate("LawnCareScreen")}>
+    <TouchableOpacity onPress={()=>navigation.navigate("LawnCare")}>
     <View style={Styles.background}>
     <Entypo name='flower' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Commercial Lawn Care</Text>
@@ -107,17 +75,29 @@ const ProductScreen = ({navigation}) => {
         <Spacer/>
     <TouchableOpacity>
     <View style={Styles.background}>
-    <Entypo name='scissors' size={24} style={Styles.icons}/>
+    <Entypo name='aircraft' size={24} style={Styles.icons}/>
     <Text style={Styles.name}>Luxury Private Flights with Yala Jets</Text>
     </View>
     </TouchableOpacity>
 </View>
         </Card>
+        </ScrollView>
+        </ImageBackground>
 
     )
 };
 
 const Styles = StyleSheet.create({
+    container: {
+        flex:1,
+        alignItems: 'center',
+        justifyContent:'center'
+    },
+    image1:{
+        width: 175,
+        height:175,
+        marginTop:200 
+    },
     background: {
         backgroundColor: '#d3d3d3',
         height: 80,
@@ -136,6 +116,13 @@ const Styles = StyleSheet.create({
     icons:{
         paddingLeft:5,
         paddingTop: 5
+    },
+    title: {
+fontSize:15,
+fontFamily: 'AvenirNext-Heavy',
+alignSelf: 'center',
+marginTop: 15,
+color: 'red'
     }
 
 })

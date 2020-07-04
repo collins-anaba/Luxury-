@@ -10,7 +10,6 @@ const LoginScreen = ({navigation}) => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
     
-    console.log(navigation)
     return (
 <ImageBackground source={require('../assets/backgroundColor.jpg')} style={styles.container}>
     <Image source={require('../assets/logo.png')} style={styles.image1}/>
