@@ -13,7 +13,7 @@ const SignUpScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [telephoneNumber, setTelephoneNumber] = useState('')
-
+    console.log(signUp)
 
     return(
         
