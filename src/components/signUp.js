@@ -1,8 +1,7 @@
 import React, { useState, useContext}from 'react';
-import {  Image,StyleSheet,ImageBackground, TextInput} from 'react-native';
+import {  Image,StyleSheet,ImageBackground} from 'react-native';
 import { Card,Input,Button, Text} from 'react-native-elements';
 import {Context as AuthContext} from '../redux/authContext';
-import Spacer from './spacer';
 
 
 
@@ -14,8 +13,7 @@ const SignUpScreen = ({navigation}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [telephoneNumber, setTelephoneNumber] = useState('')
-    console.log(navigation)
-    console.log(Input)
+
 
     return(
         
@@ -51,7 +49,7 @@ const SignUpScreen = ({navigation}) => {
                 autoCorrect={false}
                 secureTextEntry={true}
                 />
-                {state.errorMessage ? <Text>{state.errorMessage}</Text> : null}
+                {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
                 <Button
                 title="Enter"
                 buttonStyle={{backgroundColor:'red'}}
@@ -77,6 +75,12 @@ const styles = StyleSheet.create({
         width: 175,
         height:175,
         marginTop:200 
+    },
+    errorMessage: {
+        fontSize: 16,
+        color: 'red',
+        marginLeft: 15,
+        marginTop: 5
     }
 })
 

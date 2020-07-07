@@ -9,6 +9,7 @@ import SignUpScreen from './src/components/signUp';
 import {Provider as AuthProvider} from './src/redux/authContext';
 import LawnCareScreen from './src/components/lawnCare';
 import CarDetailScreen from './src/components/carDetail';
+import {setNavigator} from './src/components/navigationRef'
 
 
 
@@ -36,7 +37,7 @@ const App = createAppContainer(switchNavigator);
 export default () => {
   return (
     <AuthProvider>
-      <App/>
+      <App ref={(navigator)=> {setNavigator(navigator)}}/>
     </AuthProvider>
   )
 }
