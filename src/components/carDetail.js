@@ -4,13 +4,13 @@ import {View,StyleSheet, Button,ImageBackground, ScrollView,Linking,TouchableOpa
 import {Text, Card} from 'react-native-elements';
 import Spacer from './spacer';
 
-
+console.log(Linking)
 
 const carDetail = ({Children}) => {
 return (
 <ImageBackground source={require('../assets/rr.png')} style={styles.container}>
 <ScrollView>
-<Card containerStyle={{ height: 725,width:325, marginBottom:100 , marginTop:50, borderRadius: 10,backgroundColor: 'rgba(205, 199, 199, .3)'}}
+<Card containerStyle={{ height: 725,width:325, marginBottom:100 , marginTop:50, borderRadius: 10,backgroundColor: 'rgba(205, 199, 199, .8)'}}
 style={styles.boxWithShadow} >
     <Text style={styles.title}>Car detailing</Text>
     <View>
@@ -27,8 +27,8 @@ style={styles.boxWithShadow} >
     <Spacer/>
     <Spacer/>
 <View style={styles.background}>
-    <TouchableOpacity onPress={()=>Linking.tel('8448478463')}>
-        <Text style={styles.emailLink}>Book us now</Text>
+    <TouchableOpacity onPress={()=>Linking.openURL('tel:18448478463')}>
+        <Text style={styles.telLink}>Book us now</Text>
     </TouchableOpacity>
     </View>
 </Card>
@@ -37,9 +37,11 @@ style={styles.boxWithShadow} >
 )
 };
 
-carDetail.navigationOptions = {
-    headerShown: false
-}
+carDetail.navigationOptions = () => {
+    return {
+      header: () => false,
+    };
+  };
 
 const styles = StyleSheet.create({
     spacer: {
@@ -61,29 +63,30 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginTop: 15,
         color: 'black'
-            },
-        emailLink: {
+        },
+    telLink: {
         fontSize:20,
         fontFamily: 'Cochin',
         alignSelf: 'center',
         marginTop: 15,
         color: 'white'
         },
-        paragraph:{
+    paragraph:{
         fontSize:18,
         fontFamily: 'Cochin',
         alignSelf: 'baseline',
         marginTop: 15,
-        color: 'black'
+        color: 'black',
+        fontWeight:'bold'
         },
-        background: {
-            backgroundColor: 'red',
-            height: 80,
-            borderRadius: 10,
-            marginHorizontal:19,
-            borderWidth: 1,
-            shadowRadius:3,
-            shadowColor: 'black'
+    background: {
+        backgroundColor: 'red',
+        height: 80,
+        borderRadius: 10,
+        marginHorizontal:19,
+        borderWidth: 1,
+        shadowRadius:3,
+        shadowColor: 'black'
         }
         
 });

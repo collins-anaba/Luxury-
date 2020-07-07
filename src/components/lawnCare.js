@@ -36,9 +36,11 @@ style={styles.boxWithShadow} >
 )
 };
 
-lawnCareScreen.navigationOptions = {
-    headerShown: false
-}
+lawnCareScreen.navigationOptions = () => {
+    return {
+      header: () => false,
+    };
+  };
 
 const styles = StyleSheet.create({
     spacer: {

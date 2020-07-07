@@ -1,7 +1,9 @@
 import React, { useState, useContext}from 'react';
-import {  Image,StyleSheet,ImageBackground} from 'react-native';
+import {  Image,StyleSheet,ImageBackground, TextInput} from 'react-native';
 import { Card,Input,Button, Text} from 'react-native-elements';
 import {Context as AuthContext} from '../redux/authContext';
+import Spacer from './spacer';
+
 
 
 
@@ -11,10 +13,13 @@ const SignUpScreen = ({navigation}) => {
     const [lastName,setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [telephoneNumber, setTelephoneNumber] = useState('');
-
+    const [telephoneNumber, setTelephoneNumber] = useState('')
+    console.log(navigation)
+    console.log(Input)
 
     return(
+        
+    
         <ImageBackground source={require('../assets/backgroundColor.jpg')} style={styles.container}>
          <Image source={require('../assets/logo.png')} style={styles.image1}/>
             <Card containerStyle={{ height: 450, width:375,marginBottom:200 , borderRadius: 10}}>
@@ -36,6 +41,7 @@ const SignUpScreen = ({navigation}) => {
                 placeholder="Telephone Number"
                 value={telephoneNumber}
                 onChangeText={setTelephoneNumber}
+                keyboardType="number-pad"
                 />
                 <Input
                 placeholder="Password"
@@ -55,9 +61,11 @@ const SignUpScreen = ({navigation}) => {
     )
 };
 
-SignUpScreen.navigationOptions = {
-    headerShown: false
-}
+SignUpScreen.navigationOptions = () => {
+    return {
+      header: () => false,
+    };
+  };
 
 const styles = StyleSheet.create({
     container: {

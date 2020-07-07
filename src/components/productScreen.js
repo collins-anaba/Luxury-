@@ -1,5 +1,5 @@
 import React, {Component}from 'react';
-import { StyleSheet,TouchableOpacity, View ,Text, ScrollView,ImageBackground} from 'react-native';
+import { StyleSheet,TouchableOpacity, View ,Text, ScrollView,ImageBackground,Linking} from 'react-native';
 import {Card} from 'react-native-elements';
 import {FontAwesome, Entypo, FontAwesome5, Ionicons} from '@expo/vector-icons';
 import Spacer from './spacer';
@@ -9,12 +9,11 @@ import Spacer from './spacer';
 
 
 const ProductScreen = ({navigation}) => {
-    console.log(navigate)
 
     return ( 
 <ImageBackground source={require('../assets/backgroundColor.jpg')} style={Styles.container}>
 <ScrollView>
-<Card>
+<Card containerStyle={{height: 725,width:325,marginBottom:100 , marginTop:50,borderRadius: 10,backgroundColor: 'rgba(205, 199, 199, .4)'}}>
  <View style={Styles.spacing}>
      <Text style={Styles.title}>Services</Text>
      <Spacer/>
@@ -45,7 +44,6 @@ const ProductScreen = ({navigation}) => {
     <Text style={Styles.name}>Luxury Credit Repair</Text>
     </View>
     </TouchableOpacity> */}
-        <Spacer/>
     <TouchableOpacity onPress={()=>Linking.openURL('https://moefitness33.com/')}>
     <View style={Styles.background}>
     <Ionicons name='md-fitness' size={24} style={Styles.icons}/>
@@ -87,7 +85,11 @@ const ProductScreen = ({navigation}) => {
 
     )
 };
-
+ProductScreen.navigationOptions = () => {
+    return {
+      header: () => false,
+    };
+  };
 const Styles = StyleSheet.create({
     container: {
         flex:1,
@@ -119,11 +121,11 @@ const Styles = StyleSheet.create({
         paddingTop: 5
     },
     title: {
-fontSize:15,
-fontFamily: 'AvenirNext-Heavy',
-alignSelf: 'center',
-marginTop: 15,
-color: 'red'
+        fontSize:26,
+        fontFamily: 'Cochin',
+        alignSelf: 'center',
+        marginTop: 15,
+        color: 'black'
     }
 
 })

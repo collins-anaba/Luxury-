@@ -1,5 +1,5 @@
 import React, { useState}from 'react';
-import {  View, TouchableOpacity,StyleSheet,ImageBackground,Image} from 'react-native';
+import { TouchableOpacity,StyleSheet,ImageBackground,Image} from 'react-native';
 import {Text, Card,Input,Button} from 'react-native-elements';
 import Spacer from './spacer';
 
@@ -8,10 +8,9 @@ import Spacer from './spacer';
 const LoginScreen = ({navigation}) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [error, setError] = useState('')
     
     return (
-<ImageBackground source={require('../assets/backgroundColor.jpg')} style={styles.container}>
+<ImageBackground source={require('../assets/backgroundColor.jpg')} style={styles.container}> 
     <Image source={require('../assets/logo.png')} style={styles.image1}/>
     <Spacer/>
 <Card containerStyle={{ height: 400, marginBottom:200 , borderRadius: 10}}>
@@ -38,7 +37,7 @@ const LoginScreen = ({navigation}) => {
      <Spacer/>
      <TouchableOpacity>
     <Text style={{fontSize: 20}}
-    onPress={()=> navigation.navigate("Password")}>{"Forgot username/password"}</Text>
+    onPress={()=> navigation.navigate("PasswordScreen")}>{"Forgot username/password"}</Text>
     </TouchableOpacity>
     <Spacer/>
     <TouchableOpacity>
@@ -46,13 +45,15 @@ const LoginScreen = ({navigation}) => {
     onPress={()=> navigation.navigate("SignUp")}>{"Not a member? Apply Now"}</Text>
     </TouchableOpacity>
 </Card>
-</ImageBackground>
+</ImageBackground> 
     )
 };
  
-LoginScreen.navigationOptions = {
-        headerShown: false
-}
+LoginScreen.navigationOptions = () => {
+    return {
+      header: () => false,
+    };
+  };
 const styles = StyleSheet.create({
     container: {
         flex:1,
@@ -68,12 +69,3 @@ const styles = StyleSheet.create({
 
 export default LoginScreen;
 
-// const onButtonPress = () => {
-//     firebase.auth().signInWithEmailAndPassword(email,password)
-//     .catch(()=> {
-//         firebase.auth().createUserWithEmailAndPassword(email,password)
-//         .catch(()=> {
-//             useState({error:'Authentication failed'})
-//         })
-//     })
-// };
