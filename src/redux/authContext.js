@@ -8,12 +8,22 @@ const authReducer = (state, action) => {
     switch (action.type){
         case 'add_error':
             return{...state, errorMessage: action.payload};
+        case 'add_error2':
+            return{...state, errorMessage2: action.payload};
         case 'signUp':
-            return{errorMessage:'', token:action.payload}
+            return{errorMessage:'', token:action.payload};
+        case 'signIn':
+            return{errorMessage2: '', token:action.payload};
+        case 'clearError':
+            return{...state, errorMessage: '',  errorMessage2: ''}
         default:
             return state;
     }
 };
+
+const clearErrorMessage = dispatch => () => {
+    dispatch({type: 'clearError'});
+}
 
 const signUp = dispatch => async ({firstName, lastName, email, password, telephoneNumber }) => {
         try {
@@ -26,10 +36,17 @@ const signUp = dispatch => async ({firstName, lastName, email, password, telepho
         }
     };
 
-const login = (dispatch) => {
-    return ({ email, password }) => {
+const login = (dispatch) => async ({ email, password }) => {
+        try {
+            const response =  await mainApi.post('/signin',{ email, password});
+            await AsyncStorage.setItem('token', response.data.token);
+            dispatch({type: 'signIn', payload: response.data.token})
+            navigate('Products');
+        } catch(err){
+            dispatch({type: 'add_error2', payload: 'Email or password do not match.'})
+        }
     };
-}
+
 
 const logOut = (dispatch) => {
     return ()=> {
@@ -40,5 +57,5 @@ const logOut = (dispatch) => {
 export const {Provider, Context} = createDataContext(
     authReducer,
     {signUp,login,logOut},
-    {token: null, errorMessage:""}
+    {token: null, errorMessage:"", errorMessage2:"", clearErrorMessage}
 );

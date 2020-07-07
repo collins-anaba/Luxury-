@@ -1,11 +1,14 @@
-import React, { useState}from 'react';
+import React, { useState,useContext}from 'react';
 import { TouchableOpacity,StyleSheet,ImageBackground,Image} from 'react-native';
 import {Text, Card,Input,Button} from 'react-native-elements';
+import {Context as AuthContext} from '../redux/authContext';
+import {NavigationEvents} from 'react-navigation';
 import Spacer from './spacer';
 
 
 
 const LoginScreen = ({navigation}) => {
+    const {state, login , clearErrorMessage} = useContext(AuthContext)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     
@@ -14,6 +17,8 @@ const LoginScreen = ({navigation}) => {
     <Image source={require('../assets/logo.png')} style={styles.image1}/>
     <Spacer/>
 <Card containerStyle={{ height: 400, marginBottom:200 , borderRadius: 10}}>
+<NavigationEvents
+ onWillBlur={clearErrorMessage}/>
     <Spacer/>
       <Input 
       placeholder="Email"
@@ -30,10 +35,11 @@ const LoginScreen = ({navigation}) => {
       autoCorrect={true}
       secureTextEntry={true}
       />
+     {state.errorMessage2 ? <Text style={styles.errorMessage}>{state.errorMessage2}</Text> : null}
     <Button
      title="Sign In"
      buttonStyle={{backgroundColor:'red'}}
-     onPress={()=> navigation.navigate("Products")}/>
+     onPress={()=> login({email,password})}/>
      <Spacer/>
      <TouchableOpacity>
     <Text style={{fontSize: 20}}
@@ -64,6 +70,12 @@ const styles = StyleSheet.create({
         width: 175,
         height:175,
         marginTop:200 
+    },
+    errorMessage: {
+        fontSize: 16,
+        color: 'red',
+        marginLeft: 15,
+        marginTop: 5
     }
 })
 
