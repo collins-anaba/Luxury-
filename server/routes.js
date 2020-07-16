@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const app = express();
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
 const User = mongoose.model('User')
 
 
+
 //endpoint post request
 router.post('/signup', async (req,res) => {
-    const {firstName, lastName, email,password,telephoneNumber} = req.body;
+    const {firstName, lastName, email, password, telephoneNumber, ccNumber,month,year,cvc} = req.body;
     //try catch to catch duplicate emails
     try{
-        const user = new User({firstName, lastName, email,password,telephoneNumber});
+        const user = new User({firstName, lastName, email, password, telephoneNumber, ccNumber,month,year,cvc});
         //saves post request to the db
         await user.save();
         //creating a token
@@ -38,4 +40,19 @@ router.post('/signin', async (req,res)=> {
         return res.status(422).send({error: 'Invalid password or email'})
     }
 });
+
+router.post('/createStripePaymentIntent', function (req, res) {
+    const stripe = require('stripe')(process.env.SECRET_KEY);
+    stripe.paymentIntents.create({
+      amount: 300,
+      currency: 'usd'
+    }, function (err, paymentIntent) {
+      res.json({
+        setupIntentId: paymentIntent.client_secret
+      })
+    });
+  });
+
+  app.use('/', router);
+
 module.exports = router;

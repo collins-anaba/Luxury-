@@ -1,7 +1,8 @@
 import React from 'react'
 import {View,StyleSheet, ImageBackground, ScrollView,Linking,TouchableOpacity} from 'react-native';
 import {Text, Card} from 'react-native-elements';
-import Spacer from './spacer';
+import {Spacer} from '../components/spacer';
+
 
 
 

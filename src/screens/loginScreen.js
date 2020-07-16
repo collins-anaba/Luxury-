@@ -1,11 +1,9 @@
 import React, { useState,useContext}from 'react';
-import { TouchableOpacity,StyleSheet,ImageBackground,Image} from 'react-native';
+import { TouchableOpacity,StyleSheet,ImageBackground,Image, ScrollView} from 'react-native';
 import {Text, Card,Input,Button} from 'react-native-elements';
 import {Context as AuthContext} from '../redux/authContext';
 import {NavigationEvents} from 'react-navigation';
-import Spacer from './spacer';
-
-
+import {Spacer} from '../components/spacer';
 
 const LoginScreen = ({navigation}) => {
     const {state, login , clearErrorMessage} = useContext(AuthContext)

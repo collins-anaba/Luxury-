@@ -2,7 +2,8 @@ import React, {Component}from 'react';
 import { StyleSheet,TouchableOpacity, View ,Text, ScrollView,ImageBackground,Linking} from 'react-native';
 import {Card} from 'react-native-elements';
 import {FontAwesome, Entypo, FontAwesome5, Ionicons} from '@expo/vector-icons';
-import Spacer from './spacer';
+import {Spacer} from '../components/spacer';
+import LogOut from '../screens/logOut';
 
 
 
@@ -13,7 +14,7 @@ const ProductScreen = ({navigation}) => {
     return ( 
 <ImageBackground source={require('../assets/backgroundColor.jpg')} style={Styles.container}>
 <ScrollView>
-<Card containerStyle={{height: 725,width:325,marginBottom:100 , marginTop:50,borderRadius: 10,backgroundColor: 'rgba(205, 199, 199, .4)'}}>
+<Card containerStyle={{height: 800,width:325,marginBottom:100 , marginTop:50,borderRadius: 10,backgroundColor: 'rgba(205, 199, 199, .4)'}}>
  <View style={Styles.spacing}>
      <Text style={Styles.title}>Services</Text>
      <Spacer/>
@@ -79,6 +80,9 @@ const ProductScreen = ({navigation}) => {
     </View>
     </TouchableOpacity>
 </View>
+<Spacer/>
+
+        <LogOut/>
         </Card>
         </ScrollView>
         </ImageBackground>

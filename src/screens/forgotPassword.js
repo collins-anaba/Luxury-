@@ -1,7 +1,7 @@
 import React, { useState}from 'react';
 import {  StyleSheet,ImageBackground,Image} from 'react-native';
 import { Card,Input,Button} from 'react-native-elements';
-import Spacer from './spacer';
+import {Spacer} from '../components/spacer';
 
 
 
